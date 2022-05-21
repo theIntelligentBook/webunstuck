@@ -47,9 +47,9 @@ object Main {
         "Modern ES" -> site.Toc(
           
         ),
-        "Tutorial 1: Game of Life in the DOM" -> site.addPage("tutorial1", GitTutorial(
+        "Tutorial: Game of Life in the DOM" -> site.addPage("tutorial1", GitTutorial(
           "https://gitlab.une.edu.au/cosc360in2018/tutorial-conway-life-t1", 
-          "Tutorial 1: Conway's Game of Life using the DOM API"
+          "Tutorial: Conway's Game of Life using the DOM API"
         )),
         "Resources" -> site.addPage("resources1", markdownPage("markdown/jsAndDom/resources.md")) 
       ),
@@ -88,7 +88,7 @@ object Main {
         "CSS and Pre-processors" -> site.add("css", 
           Alternative("Slide deck", Deck(() => markdownDeck("CSS, SASS, Less, and pre-processors", "markdown/css.md")))
         ),
-        "Tutorial 2: Adding SVG and SASS" -> site.addPage("tutorial2", GitTutorial(
+        "Tutorial: Adding SVG and SASS" -> site.addPage("tutorial2", GitTutorial(
           "https://gitlab.une.edu.au/cosc360in2018/tutorial-conway-life-t2", 
           "Tutorial 2: Adding SVG and SASS to game of Life"
         )),
@@ -116,9 +116,13 @@ object Main {
             Alternative("Slide deck", Deck(() => markdownDeck("Webpack", "markdown/webpack.md")))
           ),
         ),
-        "Tutorial 3: Adding TypeScript and D3" -> site.addPage("tutorial3", GitTutorial(
+        "Tutorial: Adding TypeScript and D3" -> site.addPage("tutorial3", GitTutorial(
           "https://gitlab.une.edu.au/cosc360in2018/tutorial-conway-life-t3", 
           "Tutorial 3: Adding TypeScript and D3"
+        )),
+        "Tutorial: Setting up Webpack" -> site.addPage("tutorial4", GitTutorial(
+          "https://gitlab.une.edu.au/cosc360in2018/tutorial-conway-life-t4", 
+          "Tutorial 4: Setting up Webpack and using TypeScript modules"
         )),
       ),
 
@@ -141,6 +145,10 @@ object Main {
             Alternative("Slide deck", Deck(() => markdownDeck("Angular", "markdown/angular2.md")))
           ),
         ),
+        "Tutorial: Using Vue or React" -> site.addPage("tutorial5", GitTutorial(
+          "https://gitlab.une.edu.au/cosc360in2018/tutorial-conway-life-t5", 
+          "Tutorial 5: Rendering using Vue or React"
+        )),
       ),
 
       "5. Server-side" -> site.Toc(
