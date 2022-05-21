@@ -99,11 +99,11 @@
 
 * In SVG, each element in the drawing is an *element*.
 
---
+
 
 * This means it can be styled with CSS, and event listeners can be attached to individual elements
 
---
+
 
 * This can involve some overhead for the browser, so SVGs with a large number of elements might not be performant
 

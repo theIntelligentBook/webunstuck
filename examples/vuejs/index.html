@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    
+    <div class="container"><div class="row"><div class="col-md-8">
+
+        
+        <h3>Conway's Game of Life</h3>
+
+
+        <div class="card">
+            <div class="card-header">
+                    This is a small implementation of Life to demo Vue.js.
+                    The script for life is in <a href="life.js">life.js</a>
+                    and the script for rendering the game is in <a href="example.js">example.js</a>        
+            </div>
+            <div class="card-body">
+                    <div id="app">
+                        <div class="mono">
+                            <lifegrid v-bind:lifegrid="lifegrid"></lifegrid>
+                        </div>
+                    </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary" onclick="javascript: gameStep();" >Step</button>            
+            </div>
+        </div>
+
+
+    </div></div></div>
+
+   <script src="life.js"></script>
+   <script src="example.js"></script>
+   <style>
+       .mono {
+           font-family: "Source Code Pro", monospace;
+       }
+   </style>
+</html>

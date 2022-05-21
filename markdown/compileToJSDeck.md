@@ -144,7 +144,6 @@ if (is.ua.indexOf('gecko') >= 0) {
 var is={ie:navigator.appName=='Microsoft Internet Explorer',java:navigator.javaEnabled(),ns:navigator.appName=='Netscape',ua:navigator.userAgent.toLowerCase(),version:parseFloat(navigator.appVersion.substr(21))||parseFloat(navigator.appVersion),win:navigator.platform=='Win32'}
 is.mac=is.ua.indexOf('mac')>=0;if(is.ua.indexOf('opera')>=0){is.ie=is.ns=false;is.opera=true;}
 if(is.ua.indexOf('gecko')>=0){is.ie=is.ns=false;is.gecko=true;}
-
 ```
 
 ---
@@ -200,8 +199,8 @@ http://closure-compiler.appspot.com/home
 
 * If your code looks like this:
 
-   ```js
-   (function(){'use strict';function aa(){return function(a){return a}}function ba(){return function(){}}function ca(a){return function(b){this[a]=b}}function da(a){return function(){return this[a]}}function e(a){return function(){return a}}var l,ea="object"===typeof __ScalaJSEnv&&__ScalaJSEnv?__ScalaJSEnv:{},fa="object"===typeof ea.global&&ea.global?ea.global:"object"===typeof global&&global&&global.Object===Object?global:this;ea.global=fa;
+```js
+(function(){'use strict';function aa(){return function(a){return a}}function ba(){return function(){}}function ca(a){return function(b){this[a]=b}}function da(a){return function(){return this[a]}}function e(a){return function(){return a}}var l,ea="object"===typeof __ScalaJSEnv&&__ScalaJSEnv?__ScalaJSEnv:{},fa="object"===typeof ea.global&&ea.global?ea.global:"object"===typeof global&&global&&global.Object===Object?global:this;ea.global=fa;
 var ga="object"===typeof ea.exportsNamespace&&ea.exportsNamespace?ea.exportsNamespace:fa;ea.exportsNamespace=ga;fa.Object.freeze(ea);var ha={semantics:{asInstanceOfs:2,moduleInit:2,strictFloats:!1},assumingES6:!1};fa.Object.freeze(ha);fa.Object.freeze(ha.semantics);var ia=fa.Math.imul||function(a,b){var c=a&65535,d=b&65535;return c*d+((a>>>16&65535)*d+c*(b>>>16&65535)<<16>>>0)|0},ja=fa.Math.fround||function(a){return+a},ka=0,ma=fa.WeakMap?new fa.WeakMap:null;
 function na(a){return function(b,c){return!(!b||!b.a||b.a.Li!==c||b.a.Ki!==a)}}function oa(a){for(var b in a)return b}function qa(a,b){return new a.yo(b)}function m(a,b){return ra(a,b,0)}function ra(a,b,c){var d=new a.yo(b[c]);if(c<b.length-1){a=a.Ek;c+=1;for(var f=d.e,g=0;g<f.length;g++)f[g]=ra(a,b,c)}return d}function sa(a){return void 0===a?"undefined":a.toString()}
 function ta(a){switch(typeof a){case "string":return q(r);case "number":var b=a|0;return b===a?ua(b)?q(va):wa(b)?q(xa):q(ya):za(a)?q(Aa):q(Ba);case "boolean":return q(Ca);case "undefined":return q(Da);default:if(null===a)throw(new Fa).d();return Ga(a)?q(Ha):a&&a.a?q(a.a):null}}function Ia(a,b){return a&&a.a||null===a?a.q(b):"number"===typeof a?"number"===typeof b&&(a===b?0!==a||1/a===1/b:a!==a&&b!==b):a===b}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <title>SVG example</title>
+
+    <h1>SVG example</h1>
+    <p>
+        It's a seven-segment display. Click the segments to turn them on or off. Source: <a href="segments.js">segments.js</a>.
+    </p>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" id="display" width="640" height="480">
+        </svg>
+    </div>
+
+
+    <style>
+    .segment {
+        stroke: hsl(1, 0%, 70%);
+        stroke-width: 50;
+        stroke-linecap: round;
+        cursor: pointer;
+    }
+    .segment.on {
+        stroke: hsl(1, 100%, 70%);
+    }
+
+    </style>
+
+    <script src="segments.js"></script>
+</html>
