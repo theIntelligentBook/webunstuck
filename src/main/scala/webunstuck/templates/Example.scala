@@ -17,8 +17,9 @@ case class FileLoader(f:String) extends VHtmlComponent {
     yield text
 
   def render = <.div(
-    f,
-    FutureComp[String](loadText()) { text => println(text); <.pre(text) }
+    FutureComp[String](loadText()) { text => 
+      <.pre(text.split("\n").flatMap(s => Seq(<.span(^.cls := "code-content", s), <.br()))) 
+    }
   )
 
 }
@@ -36,7 +37,11 @@ case class Example(pwd:String, path:String, sources:Seq[String]) extends VHtmlCo
 
     def render = <.div(^.cls := "sources",
       <.div(^.cls := "fileList", 
-        for (f, i) <- sources.zipWithIndex yield <.button(^.on("click") --> select(i), f)
+        for (f, i) <- sources.zipWithIndex yield 
+          if i == selected then
+            <.button(^.cls := "selected", ^.on("click") --> select(i), f)
+          else
+            <.button(^.on("click") --> select(i), f)
       ),
       <.div(^.cls := "viewer",
         if sources.indices.contains(selected) then FileLoader(filePath(sources(selected))) else <.div()
@@ -61,9 +66,15 @@ object Example {
   ).modifiedBy(
     " .embed" -> "border: 1px solid #aaa;",
     " iframe" -> "border: none; width: 100%; height: 60vh;",
-    " .sources" -> "display: grid; grid-template-columns: 150px auto;",
-    " .fileList button" -> "width: 100%; border: none; background: none",
-    " .viewer" -> "width: 100%; max-height: 90vh; margin-left: 15px; overflow: auto;",
+    " .fileList" -> "display: flex; flex-wrap: nowrap; border-bottom: 1px solid #aaa; width: 100%; overflow-x: auto;",
+    " .fileList button" -> "border-width: 0 1px 0 0; border-color: #aaa; background: #eee;",
+    " .fileList button:hover" -> "background: #ddd;",
+    " .fileList button.selected" -> "background: #dde;",
+    " .fileList button.selected:hover" -> "background: #eef;",
+    " .viewer" -> "width: 100%; max-height: 90vh; padding: 5px; overflow: auto;",
+    " .viewer pre" -> "counter-reset: line; overflow: visible;",
+    " .viewer pre span" -> "counter-increment: line;",
+    " .viewer pre span:before" -> "content: counter(line); text-align: right; padding-right: 5px; border-right: 1px solid #aaa; width: 2em; display: inline-block; margin-right: 5px;",
   ).register()
 }
 
