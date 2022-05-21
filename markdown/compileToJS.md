@@ -1,0 +1,1 @@
+Your browser runs JavaScript. But that doesn't mean you have to write your code in JavaScript -- there is an ever-growing array of languages that treat JavaScript as a compile target, and modern web applications can be written in all sorts of languages. This week we'll look at how that works, and look at a selection of languages. (Links will be provided to one or two more.)

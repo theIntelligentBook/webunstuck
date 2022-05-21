@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <title>Simple d3.js demo</title>
+    <h1>d3.js demo</h1>
+    <p>
+        This holds an array of numbers that are updated to represent a rolling sine wave. 
+        The entire array is mapped to one period of the sine wave, with the phase changing over time.
+        Clicking the + button adds a point into the array (increasing the resolution). Clicking the - button removes a point.
+    </p>
+    <p>
+        The array is synchronised using d3 with an unordered list (showing synchronisation with HTML elements) and with an SVG path
+        (showing the use of d3's scale and line functions). Adding and removing points is so you can see the enter, update, and exit 
+        sets for a very small example.
+    </p>
+    <p>
+        <a href="d3demo.js">Sourcecode</a>
+    </p>
+    <div>
+        <button onclick="addValue()">+</button>
+        <button onclick="removeValue()">-</button>
+    </div>
+    <svg width="300">
+        <g>
+            <path id="chart"></path>
+        </g>        
+    </svg>
+    <ul id="list"></ul>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="d3demo.js"></script>    
+
+    <style>
+        svg {
+            float: right;
+            stroke: black;
+            stroke-width: 3px;
+            fill: none;
+        }
+    </style>
+</html>

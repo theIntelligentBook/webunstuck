@@ -5,7 +5,7 @@ import scala.concurrent.{Future, ExecutionContext}
 import ExecutionContext.Implicits.global
 
 import willscala.given
-
+import willscala.Common.marked
 
 case class FileLoader(f:String) extends VHtmlComponent {
 
@@ -65,4 +65,33 @@ object Example {
     " .fileList button" -> "width: 100%; border: none; background: none",
     " .viewer" -> "width: 100%; max-height: 90vh; margin-left: 15px; overflow: auto;",
   ).register()
+}
+
+case class OutsideExample(show:String, source:String) extends VHtmlComponent {
+
+  def render = <.div(^.cls := Example.styling.className,
+    <.div(^.cls := "embed",
+      <.iframe(^.src := show),
+    ),
+    <.div(
+      "Source: ", <.a(^.attr("target") := "_blank", ^.href := source, source)
+    )
+  )
+
+}
+
+
+case class GitTutorial(url:String, title:String, md:String = "") extends VHtmlComponent {
+
+  def render = <.div(
+    <.h1(title),
+    marked(md),
+    <.div(^.cls := "tutorial-link",
+      <.p("This tutorial is hosted in a git repository on an external site:"),
+      <.ul(<.li(<.a(^.attr("target") := "_blank", ^.href := url, url)))
+    )
+
+
+  )
+
 }
